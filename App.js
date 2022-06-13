@@ -1,24 +1,19 @@
-import { View, Text } from "react-native";
 
-export default function App() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "Top",
-        alignItems: "center",
-        font: "24rem",
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Component } from 'react';
+import Router from './componentes/funciones';
 
 
-        
-        
-      }}
 
-      
-    >
-      <Text>Mantenimiento Mascotas</Text>
-
-      
-    </View>
-  );
+function App(){
+    return(
+      <div className="App">
+        <Router />
+      </div>
+    );
 }
+
+
+
+export default App;
+
