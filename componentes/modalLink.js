@@ -1,83 +1,87 @@
-  
-  import React, { useState } from "react";
-  import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Form, FormGroup, FormText, Label, Input } from "reactstrap";
-   
+
+import React, { useState } from "react";
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import InsertarPet from './InsertarPet';
 
 
+const modalLink = () => {
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
+  
 
-  
-  const ModalLink = () => {
-    const [modal, setModal] = useState(false);
-    const toggle = () => setModal(!modal);
-  
-    return (
-      <div style={{ textAlign: "left" }}>
-        <Button color='success' onClick={toggle}>Agregar Pet</Button>
-        <Modal size="xl" isOpen={modal} toggle={toggle}>
-          <ModalHeader>Agregar New Pet</ModalHeader>
-          <ModalBody style={{
-                height: "100%",
-                width: "100%",
-                borderStyle: "none",
-                borderRadius: "1px",
-              }}>
-        <Form>
+  return (
+
+    
+    <div style={{ textAlign: "left" }}>
+      <Button color='success' onClick={toggle}>Agregar Pet</Button>
+      <Modal size="xl" isOpen={modal} toggle={toggle}>
+        <ModalHeader>Agregar New Pet</ModalHeader>
+        <ModalBody style={{
+          height: "100%",
+          width: "100%",
+          borderStyle: "none",
+          borderRadius: "1px",
+        }}>
+          <Form>
             <FormGroup>
-                <Label for="exampleEmail">
+              <Label for="exampleEmail">
                 Nombre Mascota
-                </Label>
-                <Input
+              </Label>
+              <Input
                 id="exampleEmail"
-                name="email"
+                name="txtnom"
                 placeholder="Nombre de la mascota"
                 type="email"
-                />
+                ref={InsertarPet.txtNomRef}
+              />
             </FormGroup>
             <FormGroup>
-                <Label for="exampleSelect">
+              <Label for="exampleSelect">
                 Status
-                </Label>
-                <Input
+              </Label>
+              <Input
                 id="exampleSelect"
-                name="select"
+                name="txtstatus"
                 type="select"
-                >
+                ref={InsertarPet.txtstatus}
+              >
                 <option>
-                    Available
+                  Available
                 </option>
                 <option>
-                    Pending
+                  Pending
                 </option>
                 <option>
-                    Sold
+                  Sold
                 </option>
-                </Input>
+              </Input>
             </FormGroup>
             <FormGroup>
-                <Label for="exampleEmail">
+              <Label for="exampleEmail">
                 URL de la foto
-                </Label>
-                <Input
+              </Label>
+              <Input
                 id="exampleEmail"
-                name="email"
-                placeholder="URL"
+                name="txtImg"
+                placeholder="URL de la imagen"
                 type="email"
-                />
+                ref={InsertarPet.txtImgRef}
+              />
             </FormGroup>
-            </Form>
+          </Form>
 
-          </ModalBody>
-          <ModalFooter>
+        </ModalBody>
+        <ModalFooter>
           <Button color="danger" onClick={toggle}>
-              Cancelar{" "}
-            </Button>
-            <Button component={'InsertarPet'} color="success" onClick={toggle}>
-              Agregar{" "}
-            </Button>
-          </ModalFooter>
-        </Modal>
-      </div>
-    );
-  };
-  
-  export default ModalLink;
+            Cancelar{" "}
+          </Button>
+          <Button component={'InsertarPet'} element={'InsertarPet'} color="success" onClick={toggle}>
+            Agregar{" "}
+          </Button>
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
+};
+
+export default modalLink;

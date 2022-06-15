@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Navigate} from 'react-router-dom';
+import { Modal } from 'reactstrap';
 
 export default class InsertarPet extends React.Component {
 
@@ -21,7 +22,7 @@ export default class InsertarPet extends React.Component {
             ,status: status
             , imagen: img
         };
-        var url = 'https://petstore.swagger.io/v2/pet' + '/mascotas';
+        var url = 'https://petstore.swagger.io/v2/pet';
         axios.post(url, mascota).then(res => {
             this.setState({ status: true });
         });
@@ -32,18 +33,8 @@ export default class InsertarPet extends React.Component {
             return <Navigate to="/" />
         }
         return (
-            <div>
-                <h1>Nueva Mascota</h1>
-                <form onSubmit={this.nuevaPet} style={{width: "50%", margin: "auto"}}>
-                    <label>Nombre: </label>
-                    <input type="text" name="txtnom" className="form-control" ref={this.txtNomRef} />
-                    <label>Director: </label>
-                    <input type="text" name="txtstatus" className="form-control" ref={this.txtStatusRef} />
-                    <label>Clasificación: </label>
-                    <input type="text" name="txtImg" className="form-control" ref={this.txtImgRef} /><br />
-                    <button className="btn btn-success">Agregar</button>
-                </form>
-            </div>
+            <Modal />
+        
         )
     }
 }

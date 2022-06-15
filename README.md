@@ -1,4 +1,7 @@
-# My Universal React Project
+# Implementación de API Pets Swagger con React Native
+
+- Se hace uso de Axios como cliente HTTP para hacer consultas.
+- Es necesario contar con node JS instalado en el equipo.
 
 <p>
   <!-- iOS -->
@@ -39,6 +42,8 @@ This project can be run from a web browser or the Expo client app. You may find 
 
 ## 📝 Notes
 
+- Versión estable, pendiente la integración del módulo de insertarPet.
+- Queda por generar los métodos de Update y Delete para la próxima entrega.
 - Learn more about [Universal React](https://docs.expo.dev/).
 - See what API and components are [available in the React runtimes](https://docs.expo.dev/versions/latest/).
 - Find out more about developing apps and websites: [Guides](https://docs.expo.dev/guides/).
